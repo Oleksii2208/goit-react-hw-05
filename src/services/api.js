@@ -2,7 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 
-const fetchTrendingMovies = async () => {
+export const fetchTrendingMovies = async () => {
   const response = await axios.get("/trending/movie/day", {
     headers: {
       Authorization:
@@ -12,25 +12,42 @@ const fetchTrendingMovies = async () => {
   return response.data;
 };
 
-export default fetchTrendingMovies;
+export const fetchMovieSearch = async (query) => {
+  const response = await axios.get(`/search/movie?query=${query}`, {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYzljN2ZlNDJjOWEwYWU4OGFkZmEwNTE1NjgzZDJlMSIsIm5iZiI6MTc0NTAzMjU0OS43ODU5OTk4LCJzdWIiOiI2ODAzMTU2NWUwMzIwN2QwYjFkOTRiNmYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.s4C80kdFbsk7bkCUzNLyfX7ChiO_gujhCPI9GkWxVAE",
+    },
+  });
+  return response.data;
+};
 
-// import axios from "axios";
+export const fetchMovieDetails = async (movieId) => {
+  const response = await axios.get(`/movie/${movieId}`, {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYzljN2ZlNDJjOWEwYWU4OGFkZmEwNTE1NjgzZDJlMSIsIm5iZiI6MTc0NTAzMjU0OS43ODU5OTk4LCJzdWIiOiI2ODAzMTU2NWUwMzIwN2QwYjFkOTRiNmYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.s4C80kdFbsk7bkCUzNLyfX7ChiO_gujhCPI9GkWxVAE",
+    },
+  });
+  return response.data;
+};
 
-// const API_KEY = "D5fl4sDm_5iMf3NxAIbT3gy6Djb934SGAoQ-s5t4h1Q";
-// axios.defaults.baseURL = "https://api.unsplash.com/";
+export const fetchMovieCast = async (movieId) => {
+  const response = await axios.get(`/movie/${movieId}/credits`, {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYzljN2ZlNDJjOWEwYWU4OGFkZmEwNTE1NjgzZDJlMSIsIm5iZiI6MTc0NTAzMjU0OS43ODU5OTk4LCJzdWIiOiI2ODAzMTU2NWUwMzIwN2QwYjFkOTRiNmYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.s4C80kdFbsk7bkCUzNLyfX7ChiO_gujhCPI9GkWxVAE",
+    },
+  });
+  return response.data.cast;
+};
 
-// const fetchImages = async (query, page) => {
-//   const response = await axios.get("/search/photos", {
-//     params: {
-//       query,
-//       per_page: 12,
-//       page: page,
-//       client_id: API_KEY,
-//     },
-//     // signal: signal,
-//   });
-
-//   return response.data;
-// };
-
-// export default fetchImages;
+export const fetchMovieReviews = async (movieId) => {
+  const response = await axios.get(`/movie/${movieId}/reviews`, {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYzljN2ZlNDJjOWEwYWU4OGFkZmEwNTE1NjgzZDJlMSIsIm5iZiI6MTc0NTAzMjU0OS43ODU5OTk4LCJzdWIiOiI2ODAzMTU2NWUwMzIwN2QwYjFkOTRiNmYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.s4C80kdFbsk7bkCUzNLyfX7ChiO_gujhCPI9GkWxVAE",
+    },
+  });
+  return response.data.results;
+};
