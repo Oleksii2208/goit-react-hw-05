@@ -3,6 +3,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { fetchMovieSearch } from "../../services/api";
 import Loader from "../../components/Loader/Loader";
+import s from "./MoviesPage.module.css";
 
 const defaultImg =
   "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
@@ -53,11 +54,12 @@ const MoviesPage = () => {
       )}
 
       {movies.length > 0 && (
-        <ul>
+        <ul className={s.moviesList}>
           {movies.map((movie) => (
             <li key={movie.id}>
               <Link state={`/movies?query=${query}`} to={`/movies/${movie.id}`}>
                 <img
+                  className={s.movieImage}
                   src={
                     movie.poster_path
                       ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -66,7 +68,7 @@ const MoviesPage = () => {
                   width={200}
                   alt={movie.title}
                 />
-                <h2>{movie.title}</h2>
+                <p className={s.movieText}>{movie.title}</p>
               </Link>
             </li>
           ))}

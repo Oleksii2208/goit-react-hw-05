@@ -41,23 +41,32 @@ const MovieDetailsPage = () => {
   };
   return (
     <div>
-      <Link to={goBackRef.current}>Go back movies</Link>
-      <img
-        src={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-            : defaultImg
-        }
-        width={500}
-        alt={movie.title}
-      />
-      <h2>{movie.title}</h2>
-      <h3>Overview</h3>
-      <p>{movie.overview}</p>
-      <h3>Genres</h3>
-      <p>{movie.genres?.map((genre) => genre.name).join(", ")}</p>
-      <h2>Additional information</h2>
-      <nav>
+      <Link className={s.btnBack} to={goBackRef.current}>
+        Go back movies
+      </Link>
+      <div className={s.movieDetails}>
+        <img
+          className={s.imgDetails}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+              : defaultImg
+          }
+          width={500}
+          alt={movie.title}
+        />
+        <div className={s.movieInfo}>
+          <h2 className={s.titleDetails}>{movie.title}</h2>
+          <h3 className={s.subtitleDetails}>Overview</h3>
+          <p className={s.textDetails}>{movie.overview}</p>
+          <h3 className={s.subtitleDetails}>Genres</h3>
+          <p className={s.textDetails}>
+            {movie.genres?.map((genre) => genre.name).join(", ")}
+          </p>
+        </div>
+      </div>
+      <h2 className={s.titleInfo}>Additional information</h2>
+      <nav className={s.nav}>
         <NavLink className={setActiveClass} to="cast">
           Cast
         </NavLink>

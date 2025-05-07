@@ -1,11 +1,24 @@
 .link {
   color: #fff;
-  font-size: 26px;
+  font-size: 36px;
   text-decoration: none;
+  border-radius: 20px;
+  padding: 0px 20px;
+  margin-top: 10px;
+  background-color: rgb(10, 200, 255);
+  transition: background-color 300ms ease;
 }
+
+.link:hover,
+.link:focus {
+  background-color: rgb(43, 255, 255);
+}
+
 .nav {
   display: flex;
   gap: 20px;
+  /* justify-content: center; */
+  margin-bottom: 20px;
 }
 .active {
   color: #ff0000;

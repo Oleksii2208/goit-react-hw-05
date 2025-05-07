@@ -1,7 +1,9 @@
+import s from "./NotFoundPage.module.css";
+
 const NotFoundPage = () => {
   return (
     <div>
-      <h2>Not found...</h2>
+      <h2 className={s.title}>Not found...</h2>
     </div>
   );
 };

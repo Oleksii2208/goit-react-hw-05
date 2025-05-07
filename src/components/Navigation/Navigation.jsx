@@ -8,7 +8,7 @@ const Navigation = () => {
   };
   return (
     <div>
-      <nav>
+      <nav className={s.nav}>
         <NavLink className={setActiveClass} to="/">
           Home
         </NavLink>

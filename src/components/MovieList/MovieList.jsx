@@ -8,11 +8,12 @@ const MovieList = ({ movies }) => {
   const location = useLocation();
   return (
     <div>
-      <ul className={s.movieList}>
+      <ul className={s.moviesList}>
         {movies.map((movie) => (
-          <li key={movie.id}>
+          <li className={s.movieList} key={movie.id}>
             <Link state={location} to={`/movies/${movie.id}`}>
               <img
+                className={s.movieImage}
                 src={
                   movie.poster_path
                     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -21,7 +22,7 @@ const MovieList = ({ movies }) => {
                 alt={movie.title}
                 width={200}
               />
-              <p>{movie.title}</p>
+              <p className={s.movieText}>{movie.title}</p>
             </Link>
           </li>
         ))}

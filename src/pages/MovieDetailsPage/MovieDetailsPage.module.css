@@ -1,3 +1,9 @@
+.btnBack {
+  display: flex;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
 .link {
   color: #fff;
   font-size: 26px;
@@ -10,4 +16,41 @@
 .active {
   color: #ff0000;
   text-decoration: underline;
+}
+
+.imgDetails {
+  border-radius: 20px;
+  /* width: 500px;
+  height: 710px; */
+  width: 280px;
+  height: 460px;
+}
+
+.movieDetails {
+  display: flex;
+}
+
+.movieInfo {
+  padding: 20px;
+}
+
+.titleDetails {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.subtitleDetails {
+  color: #fff;
+  margin-bottom: 15x;
+}
+
+.textDetails {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.titleInfo {
+  padding: 30px 0;
+  color: #fff;
+  font-size: 36px;
 }
